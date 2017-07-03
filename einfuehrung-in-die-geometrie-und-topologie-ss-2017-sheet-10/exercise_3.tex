@@ -1,0 +1,57 @@
+\section{}
+
+
+\begin{lemma}[Verkleben stetiger Abbildungen]
+  \label{lemma: glueing lemma for continuous maps}
+  Es seien $X$ und $Y$ topologische Räume.
+  \begin{enumerate}[label = \alph*)]
+    \item
+      Es sei $(U_i)_{i \in I}$ eine Familie von offenen Mengen $U_i \subseteq X$ mit $X = \bigcup_{i \in I} U_i$.
+      Für jedes $i \in I$ sei $f_i \colon U_i \to Y$ eine stetige Funktion, so dass $f_i|_{U_i \cap U_j} = f_j|_{U_i \cap U_j}$ für alle $i,j \in I$ gilt.
+      Dann gibt es eine eindeutige Funktion $f \colon X \to Y$ mit $f|_{U_i} = f_i$ für alle $i \in I$, und $f$ ist stetig.
+    \item
+      Es seien $C_1, \dotsc, C_n \subseteq X$ abgeschlossene Mengen mit $X = C_1 \cup \dotsb \cup C_n$.
+      Für jedes $i = 1, \dotsc, n$ sei $f_i \colon C_i \to Y$ eine stetige Funktion, so dass $f_i|_{C_i \cap C_j} = f_j|_{C_i \cap C_j}$ für alle $i,j = 1, \dotsc, n$ gilt.
+      Dann gibt es eine eindeutige Funktion $f \colon X \to Y$ mit $f|_{C_i} = f_i$ für alle $i = 1, \dotsc, n$, und $f$ ist stetig.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  Die Eindeutigkeit und Existenz von $f$ ist jeweils eine rein mengentheoretische Aussage;
+  $f$ ist gegeben durch $f(x) = f_i(x)$ für alle $i \in I$ und $x \in U_i$, bzw.\ alle $i = 1, \dotsc, n$ und $x \in C_i$.
+  Es bleibt zu zeigen, dass $f$ jeweils stetig ist.
+  \begin{enumerate}
+    \item
+      Es sei $U \subseteq Y$ offen.
+      Wegen der Stetigkeit der $f_i$ ist $f_i^{-1}(U) \subseteq U_i$ für alle $i \in I$ offen.
+      Wegen der Offenheit von $U_i \subseteq X$ ist $f_i^{-1}(U)$ für alle $i \in I$ auch in $X$ offen.
+      Deshalb ist $f^{-1}(U) = \bigcup_{i \in I} f_i^{-1}(U)$ als Vereinigung offener Mengen ebenfalls offen.
+    
+    \item
+      Es sei $C \subseteq Y$ abgeschlossen.
+      Wegen der Stetigkeit der $f_i$ ist $f_i^{-1}(C) \subseteq C_i$ für alle $i = 1, \dotsc, n$ abgeschlossen.
+      Wegen der Abgeschlossenheit von $C_i \subseteq X$ ist $f_i^{-1}(C)$ für alle $i = 1, \dotsc, n$ auch in $X$ abgeschlossen.
+      Deshalb ist $f^{-1}(C) = \bigcup_{i=1}^n f_i^{-1}(C)$ als endliche Vereinigung abgeschlossener Mengen ebenfalls abgeschlossen.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+Das Diagramm
+\[
+  \begin{tikzcd}
+      A \cap B
+      \arrow{r}{j_A}
+      \arrow[swap]{d}{j_B}
+    & A
+      \arrow{d}{i_A}
+    \\
+      B
+      \arrow[swap]{r}{i_B}
+    & X
+  \end{tikzcd}
+\]
+kommutiert.
+Um zu zeigen, dass es sich um ein Pushout-Diagramm handelt, gilt es zu zeigen, dass es für jeden topologischen Raum $Y$ und je zwei stetige Funktionen $f_A \colon A \to Y$ und $f_B \colon B \to Y$ mit $f_A \circ j_A = f_B \circ j_B$, eine eindeutige stetige Funktion $f \colon X \to Y$ mit $f \circ i_A = f_A$ und $f \circ i_B = f_B$ gibt.
+
+Die Bedingung $f_A \circ j_A = f_B \circ j_B$ ist äquivalent dazu, dass $f_A|_{A \cap B} = f_B|_{A \cap B}$, und die Bedingungen $f \circ i_A = f_A$ und $f \circ i_B = f_B$ sind jeweils äquivalent dazu, dass $f|_A = f_A$ und $f|_B = f_B$.
+Die Aussage folgt deshalb unmittelbar aus Lemma~\ref{lemma: glueing lemma for continuous maps}.

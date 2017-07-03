@@ -1,0 +1,92 @@
+\section{}
+
+
+
+
+
+\begin{lemma}
+  \label{lemma: path components of punctered euclidian space}
+  \begin{enumerate}[label = \alph*)]
+    \item
+      Für alle $n \geq 2$ ist $\real^n \setminus \{0\}$ wegzusammenhängend.
+    \item
+      Für alle $n \geq 1$ ist $\complex^n \setminus \{0\}$ wegzusammenhängend.
+    \item
+      Der Raum $\real \setminus \{0\}$ besteht aus den beiden (Weg)zusammenhangskomponenten
+      \[
+                  \real_+
+        \coloneqq \{ x \in \real \suchthat x > 0 \}
+        \quad\text{und}\quad
+                  \real_-
+        \coloneqq \{ x \in \real \suchthat x < 0 \}.
+      \]
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  \begin{enumerate}[label = \alph*)]
+    \item
+      Es seien $x, y \in \real^n \setminus \{0\}$.
+      \begin{itemize}
+        \item
+          Sind $x$ und $y$ linear unabhängig, so gilt $(1-t) x + t y \neq 0$ für alle $t \in \real$, weshalb
+          \[
+                    [0,1]
+            \to     \real^n \setminus \{0\},
+            \quad   t
+            \mapsto (1-t) x + t y
+          \]
+          ein wohldefinierter stetiger Weg von $x$ nach $y$ in $\real^n \setminus \{0\}$ ist.
+        \item
+          Sind $x$ und $y$ linear unabhängig, so gibt es $z \in \real^n \setminus \{0\}$ mit $z \notin \generated{x} = \generated{y}$.
+          Dann sind $x$ und $z$, sowie $y$ und $z$ in der gleichen Wegzusammenhangskomponente von $\real^n \setminus \{0\}$, und somit auch $x$ und $y$.
+      \end{itemize}
+      
+    \item
+      Es gilt $\complex^n \setminus \{0\} \cong \real^{2n} \setminus \{0\}$, weshalb die Aussage aus dem ersten Teil des Lemmas folgt.
+      
+    \item
+      Die beiden Teilmengen $\real_+, \real_- \subseteq \real \setminus \{0\}$ sind offen(e Intervalle) mit $\real_+ \cup \real_- = \real \setminus \{0\}$ und $\real_+ \cap \real^- = 0$.
+      Also ist $\real \setminus \{0\}$ unzusammenhängend, und besteht somit aus mindestens zwei Zusammenhangskomponenten.
+      Da die Intervalle $\real_+$ und $\real_-$ wegzusammenhängend sind, hat $\real \setminus \{0\}$ höchstens zwei Wegzusammenhangskomponenten.
+      Da jede Zusammenhangskomponente in Wegzusammenhangskomponenten zerfällt, folgt, dass $\real_+$ und $\real_-$ bereits die beiden (Weg)zusammenhangskomponenten von $\real \setminus \{0\}$ sind.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+
+
+
+\subsection{Die Sphäre \texorpdfstring{$\sphere^n$}{Sn}}
+
+Der Raum $\sphere^0 = \{x \in \real \suchthat |x| = 1\} = \{1, -1\}$ ist zweipunktig und diskret.
+Die (Weg)zusammen-hangs-kom-po-nen-ten von $\sphere^0$ sind deshalb $\{1\}$ und $\{-1\}$.
+
+Für $n \geq 1$ ist der Raum $\sphere^n$ wegzusammenhängend, und somit auch zusammenhängend:
+Für $x, y \in \sphere^n$ gibt es nach Lemma~\ref{lemma: path components of punctered euclidian space} einen stetigen Weg $\alpha \colon [0,1] \to \real^{n+1} \setminus \{0\}$ von $x$ nach $y$.
+Somit ist auch $\beta \colon [0,1] \to \sphere^n$, $t \mapsto \alpha(t) / \|\alpha(t)\|$ ein stetiger Weg von $x$ nach $y$.
+
+
+
+
+
+\subsection{Der projektive Raum \texorpdfstring{$kP^n$}{kPn}}
+
+Es sei $k \in \{\real, \complex\}$.
+Der Raum $kP^0$ ist einpunktig, und somit (weg)zusammenhängend
+
+Auch für $n \geq 1$ ist $kP^n$ wegzusammenhängend:
+Für $\class{x}, \class{y} \in kP^n$ gilt $x, y \in k^{n+1} \setminus \{0\}$, weshalb es nach Lemma~\ref{lemma: path components of punctered euclidian space} einen stetigen Weg $\alpha \colon [0,1] \to k^{n+1} \setminus \{0\}$ von $x$ nach $y$ gibt.
+Wegen der Stetigkeit der kanonische Projektion $p \colon k^{n+1} \setminus \{0\} \to kP^n$, $z \mapsto \class{z}$ ist somit $\beta \coloneqq p \circ \alpha \colon [0,1] \to kP^n$ ein stetiger Weg von $\class{x}$ nach $\class{y}$.
+
+
+
+
+
+
+
+
+
+
+

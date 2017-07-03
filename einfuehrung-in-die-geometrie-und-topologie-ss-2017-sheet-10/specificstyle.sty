@@ -1,0 +1,65 @@
+\usepackage{fontspec}
+\usepackage{mathtools, amssymb}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usepackage[ngerman]{babel}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+
+% Loading Libertinus for regular and math font
+\usepackage{unicode-math}
+\setmainfont{Libertinus Serif}
+\setmathfont{Libertinus Math}
+% changing the font for titles (title, section, subsection, etc.) to Libertinus
+\newfontfamily\headingfont[]{Libertinus Sans}
+\addtokomafont{disposition}{\headingfont}
+\addtokomafont{subject}{\headingfont}
+
+% prevents breaking inline math around binary or relationship symbols
+\binoppenalty=\maxdimen
+\relpenalty=\maxdimen
+
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+\setlist[enumerate, 1]{leftmargin=*}
+\setlist[itemize, 1]{leftmargin=*}
+
+\tikzcdset{
+arrow style=tikz,
+diagrams={>={Classical TikZ Rightarrow[sharp]}}
+}
+
+\renewcommand{\thesection}{Aufgabe~\arabic{section}}
+\renewcommand{\thesubsection}{\arabic{subsection})}
+\renewcommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection})}
+
+\newcounter{everything}
+\theoremstyle{definition}
+\newtheorem*{claim*}{Behauptung}
+\newtheorem*{example*}{Beispiel}
+\newtheorem*{remark*}{Bemerkung}
+\newtheorem{claim}[everything]{Behauptung}
+\newtheorem{example}[everything]{Beispiel}
+\newtheorem{lemma}[everything]{Lemma}
+\newtheorem{proposition}[everything]{Proposition}
+\newtheorem{remark}[everything]{Bemerkung}
+
+\newcommand{\suchthat}{\,|\,}
+\newcommand{\suchthatscale}{\;\middle|\;}
+
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\complex}{\mathbb{C}}
+\newcommand{\generated}[1]{\left\langle #1 \right\rangle}
+\newcommand{\GL}[2]{\operatorname{GL}_{#1}(#2)}
+\newcommand{\matrices}[2]{\operatorname{M}_{#1}(#2)}
+\newcommand{\sphere}{\mathbb{S}}
+
+\renewcommand{\setminus}{\smallsetminus}
+
+\newcommand{\class}[1]{\overline{#1}}

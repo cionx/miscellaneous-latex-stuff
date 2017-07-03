@@ -1,0 +1,243 @@
+\section{}
+
+
+
+
+
+\subsection{}
+
+Für alle $A, B \in \matrices{n}{k}$ ist die Abbildung $[0,1] \to \matrices{n}{k}$, $t \mapsto (1-t)A + tB$ ein stetiger Weg von $A$ nach $B$.
+
+
+
+
+
+\subsection{}
+
+
+\begin{proposition}
+  \label{proposition: elemantery row operations}
+  Es sei $k \in \{\real, \complex\}$ und $A \in \GL{n}{k}$.
+  Die Matrix $B \in \GL{n}{k}$ entstehe aus $A$ durch
+  \begin{enumerate}[label = \alph*)]
+    \item
+      \label{operation: adding multiples to other rows}
+      Addition des $\lambda$-fachen der $i$-ten Zeile auf die $j$-te Spalte für $i \neq j$ und $\lambda \in k$;
+    \item
+      \label{operation: scaling rows}
+      Multiplikation der $i$-ten Zeile mit $\lambda \in k \setminus \{0\}$, wobei $\lambda$ in der gleichen Wegzusammenhangskomponente liegt wie $1 \in k \setminus \{0\}$
+      (also $\lambda \neq 0$ für $k = \complex$ und $\lambda > 0$ für $k = \real$);
+  \end{enumerate}
+  oder
+  \begin{enumerate}[label = \alph*), resume]
+    \item
+      \label{operation: swapping rows}
+      im Fall $k = \complex$ durch Vertauschen der $i$-ten und $j$-ten Zeile für $i \neq j$;
+    \item
+      \label{operation: modified swapping rows}
+      im Fall $k = \real$ durch Vertauschen der $i$-ten und $j$-ten Zeile für $i < j$ und anschließendes Multiplizieren der $i$-ten Zeile (d.h.\ der früheren $j$-ten Zeile) mit $-1$.
+  \end{enumerate}
+  Dann gibt es in $\GL{n}{k}$ einen stetigen Weg von $A$ nach $B$.
+\end{proposition}
+
+\begin{proof}
+  \begin{enumerate}[label = \alph*)]
+    \item
+      Für alle $\mu \in K$ sei $E(\mu) \in \matrices{n}{k}$ die Matrix der Form
+      \[
+                  E(\mu)
+        \coloneqq \begin{pmatrix}
+                    1 &         &         &   \\
+                      & \ddots  & \mu     &   \\
+                      &         & \ddots  &   \\
+                      &         &         & 1
+                  \end{pmatrix},
+      \]
+      wobei $\mu$ im $(j,i)$-ten Eintrag steht.
+      Für alle $C \in \matrices{n}{k}$ entsteht die Matrix $E(\mu) C$ aus $C$ durch Addition des $\mu$-fachen der $i$-ten Zeile auf die $j$-te.
+      Dann ist
+      \[
+                \alpha
+        \colon  [0,1] \to \GL{n}{k},
+        \quad   t
+        \mapsto E(t\lambda) A
+      \]
+      ein stetiger Weg von $A$ nach $E(\lambda) A = B$.
+      Die Wohldefiniertheit von $\alpha$ folgt daraus, dass $\det \alpha(t) = \det A$ für alle $t \in [0,1]$ gilt.
+      Die Stetigkeit von $\alpha$ folgt daraus, dass die Einträge von $\alpha(t)$ affin-lineare Funktionen in $t$ sind.
+      
+    \item
+      Für alle $\mu \in k \setminus \{0\}$ sei $E(\mu) \in \matrices{n}{k}$ die Diagonalmatrix mit Einträgen $E(\mu)_{ii} = \mu$ und $E(\mu)_{jj} = 1$ für alle $j \neq i$.
+      Für alle $C \in \matrices{n}{k}$ entsteht die Matrix $E(\mu) C$ aus $C$ durch Multiplikation der $i$-ten Zeile mit $\mu$.
+      
+      Nach Annahme gibt es einen stetigen Weg $\alpha \colon [0,1] \to k \setminus \{0\}$ von $1$ nach $\lambda$.
+      Damit ist
+      \[
+                \beta
+        \colon  [0,1] \to \GL{n}{k},
+        \quad   t
+        \mapsto E(\alpha(t)) A
+      \]
+      ein stetiger Weg von $A$ nach $E(\alpha(1)) A = E(\lambda) A = B$.
+      Die Wohldefiniertheit von $\beta$ folgt daraus, dass $\det \beta(t) = \alpha(t) \det A \neq 0$ für alle $t \in [0,1]$ gilt.
+      Die Stetigkeit von $\beta$ folgt daraus, dass die Einträge von $\beta(t)$ affin-linerae Funktionen in $t$ sind.
+      
+      Nach Lemma~\ref{lemma: path components of punctered euclidian space} ist $\real_+ = \{x \in \real \suchthat x > 0\}$ die Wegzusammenhangskomponente von $1$ in $\real \setminus \{0\}$, und $\complex \setminus \{0\}$ die Wegzusammenhangskomponente von $1$ in $\complex \setminus \{0\}$.
+    
+    \item
+      Wir können ausgehend von $A$ die folgenden elementaren Zeilenoperationen durchführen, ohne die Wegzusammenhangskomponente von $A$ zu verlassen:
+      \begin{enumerate}[label = \arabic*.]
+        \item
+          Addition der $i$-ten Zeile auf die $j$-te Zeile.
+        \item
+          Subtraktion der $j$-ten Zeile von der $i$-ten Zeile.
+        \item
+          Addition der $i$-ten Zeile auf die $j$-te Zeile.
+        \item
+          Multiplikation der $i$-ten Zeile mit $-1$.
+      \end{enumerate}
+      Hierdurch entsteht genau die Matrix $B$.
+      Die Änderung der $i$-ten und $j$-ten Zeile lässt sich dabei wie folgt darstellen:
+      \[
+        \begin{matrix}
+          z_i \\ z_j
+        \end{matrix}
+        \;\to\;
+        \begin{matrix}
+          z_i \phantom{+ z_j} \\ z_i + z_j
+        \end{matrix}
+        \;\to\;
+        \begin{matrix}
+          \phantom{z_i} - z_j \\ z_i + z_j
+        \end{matrix}
+        \;\to\;
+        \begin{matrix}
+          -z_j \\ \phantom{-}z_i
+        \end{matrix}
+        \;\to\;
+        \begin{matrix}
+          z_j \\ z_i
+        \end{matrix}
+      \]
+      
+    \item
+      Es muss im obigen Verfahren nur der vierte Schritt weggelassen werden.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+
+
+
+\subsubsection{Der komplexe Fall \texorpdfstring{$\GL{n}{\complex}$}{GLn(C)}}
+
+Es sei $A \in \GL{n}{\complex}$.
+Proposition~\ref{proposition: elemantery row operations} zeigt, dass man ausgehend von $A$ alle elementaren Zeilenoperationen durchführen darf, ohne die Wegzusammenhangskomponente von $A$ zu verlassen.
+Da $A$ invertierbar ist, kann man $A$ durch elementare Zeilenumformungen in die Einheitsmatrix umformen.
+
+Es folgt, dass jede Wegzusammenhangskomponente von $\GL{n}{\complex}$ die Einheitsmatrix enthält.
+Somit ist $\GL{n}{\complex}$ wegzusammenhängend.
+
+
+
+
+
+\subsubsection{Der reelle Fall \texorpdfstring{$\GL{n}{\real}$}{GLnR}}
+
+Wir zeigen, dass $\GL{n}{\real}$ in die beiden (Weg)zusammenhangskomponenten
+\[
+            \GL{n}{\real}_+
+  \coloneqq \{A \in \GL{n}{\real} \suchthat \det A > 0\}
+  \quad\text{und}\quad
+            \GL{n}{\real}_-
+  \coloneqq \{A \in \GL{n}{\real} \suchthat \det A < 0\}
+\]
+zerfällt.
+
+Wäre $\GL{n}{\real}$ zusammenhängend, so wäre auch das Bild $\det( \GL{n}{\real} ) = \real \setminus \{0\}$ zusammenhängend.
+Nach Lemma~\ref{lemma: path components of punctered euclidian space} ist $\real \setminus \{0\}$ aber unzusammenhängend.
+Folglich besteht $\GL{n}{\real}$ aus mindestens zwei Zusammenhangskomponenten.
+Es genügt daher zu zeigen, dass $\GL{n}{\real}_+$ und $\GL{n}{\real}_-$ jeweils wegzusammenhängend sind.
+
+Wir zeigen zunächst, dass sich jede Matrix $A \in \GL{n}{\real}$ durch Operationen, welche jeweils die Wegzusammenhangskomponente von $A$ nicht verlassen, in eine der beiden Diagonalmatrizen
+\[
+            D_+
+  \coloneqq \begin{pmatrix}
+              1 &         &   &   \\
+                & \ddots  &   &   \\
+                &         & 1 &   \\
+                &         &   & 1
+            \end{pmatrix}
+            \in \GL{n}{\real}_+
+  \quad\text{und}\quad
+            D_-
+  \coloneqq \begin{pmatrix}
+              1 &         &   &     \\
+                & \ddots  &   &     \\
+                &         & 1 &     \\
+                &         &   & -1
+            \end{pmatrix}
+            \in \GL{n}{\real}_-
+\]
+umformen lässt:
+
+\begin{itemize}
+  \item
+    Da $A$ invertierbar ist, können wir $A$ durch elementare Zeilenumformungen in die Einheitsmatrix umformen.
+    
+    Schränkt man dabei das Skalieren von Zeilen auf positive Skalare ein, und Ersetzt das Vertauschen von Zeilen (eine Umformungen vom Typ \ref{operation: swapping rows} in Propositon~\ref{proposition: elemantery row operations}) durch die äbgeänderte Operation \ref{operation: modified swapping rows} aus Propositon~\ref{proposition: elemantery row operations}, so kann $A$ mit quasi unveränderten Vorgehen in ein Matrix der Form
+    \[
+        D
+      = \begin{pmatrix}
+          \varepsilon_1 &         &               \\
+                        & \ddots  &               \\
+                        &         & \varepsilon_n
+        \end{pmatrix}
+      \qquad
+      \text{mit $\varepsilon_i = \pm 1$ für alle $i = 1, \dotsc, n$}
+    \]
+    umformt werden, ohne die Wegzusammenhangskomponente von $A$ zu verlassen.
+    
+  \item
+    Wendet man für $i < j$ die Operation \ref{operation: modified swapping rows} zweimal hintereinander an, so ändert man ingesamt das Vorzeichen der $i$-ten und $j$-ten Zeile:
+    \[
+      \begin{matrix}
+        z_i \\ z_j
+      \end{matrix}
+      \;\to\;
+      \begin{matrix}
+        -z_j \\ \phantom{-}z_i
+      \end{matrix}
+      \;\to\;
+      \begin{matrix}
+        -z_i \\ -z_j
+      \end{matrix}
+    \]
+    Durch iteriertes Anwenden hiervon lässt sich $D$ in eine der Formen $D_+$ oder $D_-$ bringen, ohne die Wegzusammenhangskomponente von $A$ zu verlassen:
+    
+    Falls $|\{1 \leq i \leq n \suchthat \varepsilon_i = -1\}|$ gerade ist, so kann man die Minus-Einsen auf der Diagonale von $D$ paarweise durch Einsen ersetzen, bis man schließlich $D_+$ erhält.
+    Falls $|\{1 \leq i \leq n \suchthat \varepsilon_i = -1\}|$  ungerade ist, so ist man im Fall $n = 1$ bereit fertig; ansonsten ändert man das Vorzeichen von $\varepsilon_{n-1}$ und $\varepsilon_n$, und elemeniert anschließend die Minus-Einsen im Bereich $1 \leq i \leq n-1$ paarweise.
+    Hierdurch erhält man schließlich $D_-$.
+\end{itemize}
+
+Man bemerke, dass die Umformungen vom Typ \ref{operation: adding multiples to other rows} und \ref{operation: modified swapping rows}, sowie das obige paarweise Eliminieren von Minus-Einsen  die Determinante einer Matrix nicht verändert, und dass Umformungen vom Typ \ref{operation: scaling rows} das Vorzeichen der Determinante nicht verändert.
+Ingesamt bleibt also das Vorzeichen der Determinante bei allen genutzen Umformungen unverändert.
+
+Es folgt, dass sich alle $A \in \GL{n}{\real}_+$ zu $D_1$ umformen lassen, und alle $A \in \GL{n}{\real}_-$ zu $D_{-1}$, jeweils ohne die entsprechende Wegzusammenhangskomponente zu verlassen.
+Inbesondere sind $\GL{n}{\real}_+$ und $\GL{n}{\real}_-$ wegzusammenhängend.
+
+
+% TODO: Remark regarding rotation and reflection matrices.
+
+% TODO: Remark regarding outher matrix groups.
+
+
+
+
+
+
+
+
+
+
