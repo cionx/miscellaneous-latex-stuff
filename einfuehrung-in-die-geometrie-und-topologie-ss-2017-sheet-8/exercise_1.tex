@@ -39,7 +39,8 @@
           ein wohldefinierter stetiger Weg von $x$ nach $y$ in $\real^n \setminus \{0\}$ ist.
         \item
           Sind $x$ und $y$ linear unabhängig, so gibt es $z \in \real^n \setminus \{0\}$ mit $z \notin \generated{x} = \generated{y}$.
-          Dann sind $x$ und $z$, sowie $y$ und $z$ in der gleichen Wegzusammenhangskomponente von $\real^n \setminus \{0\}$, und somit auch $x$ und $y$.
+          Dann sind $x$ und $z$, sowie $y$ und $z$ linear unabhängig, und somit jeweils in der gleichen Wegzusammenhangskomponente von $\real^n \setminus \{0\}$.
+          Somit sind $x$ und $y$ in der gleichen Wegzusammenhangskomponente.
       \end{itemize}
       
     \item
@@ -49,7 +50,7 @@
       Die beiden Teilmengen $\real_+, \real_- \subseteq \real \setminus \{0\}$ sind offen(e Intervalle) mit $\real_+ \cup \real_- = \real \setminus \{0\}$ und $\real_+ \cap \real^- = 0$.
       Also ist $\real \setminus \{0\}$ unzusammenhängend, und besteht somit aus mindestens zwei Zusammenhangskomponenten.
       Da die Intervalle $\real_+$ und $\real_-$ wegzusammenhängend sind, hat $\real \setminus \{0\}$ höchstens zwei Wegzusammenhangskomponenten.
-      Da jede Zusammenhangskomponente in Wegzusammenhangskomponenten zerfällt, folgt, dass $\real_+$ und $\real_-$ bereits die beiden (Weg)zusammenhangskomponenten von $\real \setminus \{0\}$ sind.
+      Da jede Zusammenhangskomponente in die feineren Wegzusammenhangskomponenten zerfällt, folgt, dass $\real_+$ und $\real_-$ bereits die beiden (Weg)zusammenhangskomponenten von $\real \setminus \{0\}$ sind.
     \qedhere
   \end{enumerate}
 \end{proof}
@@ -61,7 +62,7 @@
 \subsection{Die Sphäre \texorpdfstring{$\sphere^n$}{Sn}}
 
 Der Raum $\sphere^0 = \{x \in \real \suchthat |x| = 1\} = \{1, -1\}$ ist zweipunktig und diskret.
-Die (Weg)zusammen-hangs-kom-po-nen-ten von $\sphere^0$ sind deshalb $\{1\}$ und $\{-1\}$.
+Die (Weg)zu\-sammen\-hangs\-kom\-po\-nen\-ten von $\sphere^0$ sind deshalb $\{1\}$ und $\{-1\}$.
 
 Für $n \geq 1$ ist der Raum $\sphere^n$ wegzusammenhängend, und somit auch zusammenhängend:
 Für $x, y \in \sphere^n$ gibt es nach Lemma~\ref{lemma: path components of punctered euclidian space} einen stetigen Weg $\alpha \colon [0,1] \to \real^{n+1} \setminus \{0\}$ von $x$ nach $y$.

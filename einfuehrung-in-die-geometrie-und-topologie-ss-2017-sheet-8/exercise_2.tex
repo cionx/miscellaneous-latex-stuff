@@ -26,13 +26,13 @@ Für alle $A, B \in \matrices{n}{k}$ ist die Abbildung $[0,1] \to \matrices{n}{k
     \item
       \label{operation: scaling rows}
       Multiplikation der $i$-ten Zeile mit $\lambda \in k \setminus \{0\}$, wobei $\lambda$ in der gleichen Wegzusammenhangskomponente liegt wie $1 \in k \setminus \{0\}$
-      (also $\lambda \neq 0$ für $k = \complex$ und $\lambda > 0$ für $k = \real$);
+      (also $\lambda \neq 0$ für $k = \complex$ gilt, und $\lambda > 0$ für $k = \real$);
   \end{enumerate}
   oder
   \begin{enumerate}[label = \alph*), resume]
     \item
       \label{operation: swapping rows}
-      im Fall $k = \complex$ durch Vertauschen der $i$-ten und $j$-ten Zeile für $i \neq j$;
+      im Fall $k = \complex$ durch Vertauschen der $i$-ten und $j$-ten Zeile;
     \item
       \label{operation: modified swapping rows}
       im Fall $k = \real$ durch Vertauschen der $i$-ten und $j$-ten Zeile für $i < j$ und anschließendes Multiplizieren der $i$-ten Zeile (d.h.\ der früheren $j$-ten Zeile) mit $-1$.
@@ -54,8 +54,8 @@ Für alle $A, B \in \matrices{n}{k}$ ist die Abbildung $[0,1] \to \matrices{n}{k
                   \end{pmatrix},
       \]
       wobei $\mu$ im $(j,i)$-ten Eintrag steht.
-      Für alle $C \in \matrices{n}{k}$ entsteht die Matrix $E(\mu) C$ aus $C$ durch Addition des $\mu$-fachen der $i$-ten Zeile auf die $j$-te.
-      Dann ist
+      Für alle $C \in \matrices{n}{k}$ entsteht die Matrix $E(\mu) C$ aus $C$ durch Addition des $\mu$-fachen der $i$-ten Zeile auf die $j$-te Zeile.
+      Deshalb ist
       \[
                 \alpha
         \colon  [0,1] \to \GL{n}{k},
@@ -80,11 +80,12 @@ Für alle $A, B \in \matrices{n}{k}$ ist die Abbildung $[0,1] \to \matrices{n}{k
       \]
       ein stetiger Weg von $A$ nach $E(\alpha(1)) A = E(\lambda) A = B$.
       Die Wohldefiniertheit von $\beta$ folgt daraus, dass $\det \beta(t) = \alpha(t) \det A \neq 0$ für alle $t \in [0,1]$ gilt.
-      Die Stetigkeit von $\beta$ folgt daraus, dass die Einträge von $\beta(t)$ affin-linerae Funktionen in $t$ sind.
+      Die Stetigkeit von $\beta$ folgt daraus, dass die Einträge von $\beta(t)$ affin-lineare Funktionen in $t$ sind.
       
-      Nach Lemma~\ref{lemma: path components of punctered euclidian space} ist $\real_+ = \{x \in \real \suchthat x > 0\}$ die Wegzusammenhangskomponente von $1$ in $\real \setminus \{0\}$, und $\complex \setminus \{0\}$ die Wegzusammenhangskomponente von $1$ in $\complex \setminus \{0\}$.
+      (Nach Lemma~\ref{lemma: path components of punctered euclidian space} ist $\real_+ = \{x \in \real \suchthat x > 0\}$ die Wegzusammenhangskomponente von $1$ in $\real \setminus \{0\}$, und $\complex \setminus \{0\}$ die Wegzusammenhangskomponente von $1$ in $\complex \setminus \{0\}$.)
     
     \item
+      Es genügt, den Fall $i \neq j$ zu betrachten.
       Wir können ausgehend von $A$ die folgenden elementaren Zeilenoperationen durchführen, ohne die Wegzusammenhangskomponente von $A$ zu verlassen:
       \begin{enumerate}[label = \arabic*.]
         \item
@@ -97,14 +98,14 @@ Für alle $A, B \in \matrices{n}{k}$ ist die Abbildung $[0,1] \to \matrices{n}{k
           Multiplikation der $i$-ten Zeile mit $-1$.
       \end{enumerate}
       Hierdurch entsteht genau die Matrix $B$.
-      Die Änderung der $i$-ten und $j$-ten Zeile lässt sich dabei wie folgt darstellen:
+      Die Änderung der $i$-ten und $j$-ten Zeilen lassen sich dabei wie folgt darstellen:
       \[
         \begin{matrix}
           z_i \\ z_j
         \end{matrix}
         \;\to\;
         \begin{matrix}
-          z_i \phantom{+ z_j} \\ z_i + z_j
+          z_i \phantom{\ + z_j} \\ z_i + z_j
         \end{matrix}
         \;\to\;
         \begin{matrix}
