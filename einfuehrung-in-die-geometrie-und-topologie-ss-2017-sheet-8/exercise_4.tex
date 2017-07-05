@@ -1,1 +1,156 @@
 \section{}
+
+Es seien $W, W_1, W_2 \coloneqq [0,1]^n$.
+(Der Buchstabe „$W$“ steht hier für Würfel.)
+Es seien
+\begin{alignat*}{3}
+            \varphi_1
+  \colon    W_1
+  &\to      W,
+  &\quad    (x_1, \dotsc, x_n)
+  &\mapsto  \left( x_1, \dotsc, x_{k-1}, \frac{x_k}{2}, \dotsc, x_k, \dotsc, x_n \right)
+\shortintertext{und}
+            \varphi_2
+  \colon    W_2
+  &\to      W,
+  &\quad    (x_1, \dotsc, x_n)
+  &\mapsto  \left( x_1, \dotsc, x_{k-1}, \frac{1}{2} + \frac{x_k}{2}, \dotsc, x_k, \dotsc, x_n \right).
+\end{alignat*}
+Beide Abbildungen sind stetig, da sie in jeder Komponente stetig sind.
+Nach der universellen Eigenschaft des Koprodukts gibt es eine eindeutige stetige Abbildung $\varphi \colon W_1 \amalg W_2 \to W$ mit $\varphi(x,1) = \varphi_1(x)$ und $\varphi(y,2) = \varphi_2(y)$ für alle $x \in W_1$ und $y \in W_2$.
+(Wir notieren hier die Elemente von $W_1 \amalg W_2$ als Paare $(x,1)$ mit $x \in W_1$, bzw.\ $(y,2)$ mit $y \in W_2$.)
+Man bemerke, dass $\varphi$ surjektiv ist.
+
+Für die Äquivalenzrelation $\sim$ auf $W_1 \amalg W_2$ mit
+\[
+  x \sim y \iff \varphi(x) = \varphi(y)
+  \quad
+  \text{für alle $x, y \in W_1 \amalg W_2$}
+\]
+induziert die stetige Surjektion $\varphi$ nach der universellen Eigenschaft des Quotienten eine wohldefinierte stetige Bijektion
+\[
+          \induced{\varphi}
+  \colon  (W_1 \amalg W_2)/{\sim}
+  \to     W,
+  \quad   \class{x}
+  \mapsto \varphi(x).
+\]
+Da $W_1$ und $W_2$ kompakt sind, ist es auch $W_1 \amalg W_2$, und somit auch $(W_1 \amalg W_2)/{\sim}$.
+Außerdem ist $W$ Hausdorff.
+Somit ist die stetige Bijektion $\varphi$ nach dem üblichen Kompakt-Hausdorff-Argument bereits ein Homöomorphismus.
+
+Man bemerke, dass die Äquivalenzrelation $\sim$ von
+\[
+        ( (x_1, \dotsc, x_{k-1}, 1, x_k, \dotsc, x_{n-1}), 1)
+  \sim  ( (x_1, \dotsc, x_{k-1}, 0, x_k, \dotsc, x_{n-1}), 2)
+\]
+für alle $x = (x_1, \dotsc, x_{n-1}) \in [0,1]^{n-1}$ erzeugt wird, d.h.\ von
+\[
+  \left( i_0^k(x), 1 \right) \sim \left( i_1^k(x), 2 \right)
+  \quad
+  \text{für alle $x \in [0,1]^{n-1}$}.
+\]
+Wir erhalten nun eine Bijektion
+\begin{align*}
+              P^n X
+  &\coloneqq  \left\{
+                \text{$f \colon W \to X$ stetig}
+              \right\}
+  \\
+  &\cong      \left\{
+                \text{$f \colon (W_1 \amalg W_2)/{\sim} \to X$ stetig}
+              \right\}
+  \\
+  &\cong      \left\{
+                \text{$f \colon W_1 \amalg W_2 \to X$ stetig und $\sim$-equivariant}
+              \right\}
+  \\
+  &=          \left\{
+                \text{$f \colon W_1 \amalg W_2 \to X$ stetig
+                      mit $f\left( ( i_1^k(x), 1) \right) = f\left( ( i_0^k(x), 0) \right)$ für alle $x \in [0,1]^{n-1}$}
+              \right\}
+  \\
+  &\cong      \left\{
+                (f, g)
+               \suchthatscale
+                \text{
+                \begin{tabular}{c}
+                  $f \colon W_1 \to X$, $g \colon W_2 \to X$ stetig mit
+                \\
+                  $f\left( i_1^k(x) \right) = g\left( i_0^k(x) \right)$ für alle $x \in [0,1]^{n-1}$
+                \end{tabular}
+                }
+              \right\}
+  \\
+  &=          \left\{
+                (f, g) \in P^n X \times P^n X
+              \suchthatscale
+                f \circ i_1^k = g \circ i_0^k
+              \right\}
+  \\
+  &=          \left\{
+                (f, g) \in P^n X \times P^n X
+              \suchthatscale
+                \left( i_1^k \right)^*(f) = \left( i_0^k \right)^*(g)
+              \right\}
+  =           P.
+\end{align*}
+Wir bezeichnen diesen Isomorphismus mit $\Phi$.
+Dieser Isomorphismus liefert eine partiell definierte binäre Verknüpfung
+\[
+                      P^n X \times P^n X
+  \supseteq           P
+  \xrightarrow{\Phi}  P_n X
+\]
+mit
+\[
+          \Phi(f,g)
+  \colon  [0,1]^n
+  \to     X,
+  \quad   (x_1, \dotsc, x_n)
+  \mapsto \begin{cases}
+            f(x_1, \dotsc, x_{k-1}, 2x_k, x_{k+1}, \dotsc, x_n)     & \text{falls $x_k \leq \frac{1}{2}$},  \\
+            g(x_1, \dotsc, x_{k-1}, 2x_k - 1, x_{k+1}, \dotsc, x_n) & \text{falls $x_k \geq \frac{1}{2}$}.
+          \end{cases}
+\]
+
+Im Fall $n = 1$ ist $P^1 X$ die Menge der stetigen Pfade in $X$.
+Es ist $[0,1]^0 = \{*\}$ der einpunktige Raum, und für $f, g \in P^1 X$ gilt
+\[
+    (i_1^1)^*(f)(*)
+  = f(i_1^1(*))
+  = f(1)
+  \quad\text{und}\quad
+    (i_0^1)^*(g)(*)
+  = g(i_0^1(*))
+  = g(0).
+\]
+Deshalb gilt
+\[
+    P
+  = \{
+      (f,g) \in P^n X \times P^n X
+    \suchthat
+      (i_1^1)^*(f) = (i_0^1)^*(g)
+    \}
+  = \{
+      (f,g) \in P^n X \times P^n X
+    \suchthat
+      f(1) = g(0)
+    \}.
+\]
+Also besteht $P$ genau aus der Menge der konkatinierbaren Wege.
+Für $(f,g) \in P$ gilt außerdem
+\[
+    \Phi(f,g)(t)
+  = \begin{cases}
+      f(2t)   & \text{für $0 \leq t \leq \frac{1}{2}$}, \\
+      g(2t-1) & \text{für $\frac{1}{2} \leq t \leq 1$}.
+    \end{cases}
+\]
+Dies ist genau die Konkatination von Pfaden.
+
+
+
+
+
