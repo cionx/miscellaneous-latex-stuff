@@ -14,10 +14,10 @@ Es seien
   \colon    W_2
   &\to      W,
   &\quad    (x_1, \dotsc, x_n)
-  &\mapsto  \left( x_1, \dotsc, x_{k-1}, \frac{1}{2} + \frac{x_k}{2}, \dotsc, x_k, \dotsc, x_n \right).
+  &\mapsto  \left( y_1, \dotsc, y_{k-1}, \frac{1}{2} + \frac{y_k}{2}, \dotsc, y_k, \dotsc, y_n \right).
 \end{alignat*}
 Beide Abbildungen sind stetig, da sie in jeder Komponente stetig sind.
-Nach der universellen Eigenschaft des Koprodukts gibt es eine eindeutige stetige Abbildung $\varphi \colon W_1 \amalg W_2 \to W$ mit $\varphi(x,1) = \varphi_1(x)$ und $\varphi(y,2) = \varphi_2(y)$ für alle $x \in W_1$ und $y \in W_2$.
+Nach der universellen Eigenschaft des Koprodukts gibt es eine eindeutige stetige Abbildung $\varphi \colon W_1 \amalg W_2 \to W$ mit $\varphi(x,1) = \varphi_1(x)$ und $\varphi(y,2) = \varphi_2(x)$ für alle $x \in W_1$ und $y \in W_2$.
 (Wir notieren hier die Elemente von $W_1 \amalg W_2$ als Paare $(x,1)$ mit $x \in W_1$, bzw.\ $(y,2)$ mit $y \in W_2$.)
 Man bemerke, dass $\varphi$ surjektiv ist.
 
@@ -67,7 +67,7 @@ Wir erhalten nun eine Bijektion
   \\
   &=          \left\{
                 \text{$f \colon W_1 \amalg W_2 \to X$ stetig
-                      mit $f\left( ( i_1^k(x), 1) \right) = f\left( ( i_0^k(x), 0) \right)$ für alle $x \in [0,1]^{n-1}$}
+                      mit $f\left( ( i_1^k(x), 1) \right) = f\left( ( i_0^k(x), 2) \right)$ für alle $x \in [0,1]^{n-1}$}
               \right\}
   \\
   &\cong      \left\{
@@ -109,8 +109,8 @@ mit
   \to     X,
   \quad   (x_1, \dotsc, x_n)
   \mapsto \begin{cases}
-            f(x_1, \dotsc, x_{k-1}, 2x_k, x_{k+1}, \dotsc, x_n)     & \text{falls $x_k \leq \frac{1}{2}$},  \\
-            g(x_1, \dotsc, x_{k-1}, 2x_k - 1, x_{k+1}, \dotsc, x_n) & \text{falls $x_k \geq \frac{1}{2}$}.
+            f(x_1, \dotsc, x_{k-1}, 2x_k, x_{k+1}, \dotsc, x_n)     & \text{falls $x_k \leq 1/2$},  \\
+            g(x_1, \dotsc, x_{k-1}, 2x_k - 1, x_{k+1}, \dotsc, x_n) & \text{falls $x_k \geq 1/2$}.
           \end{cases}
 \]
 
@@ -139,17 +139,16 @@ Deshalb gilt
       f(1) = g(0)
     \}.
 \]
-Also besteht $P$ genau aus der Menge der konkatinierbaren Wege.
+Also besteht $P$ genau aus der Menge der konkatinierbaren Pfade.
 Für $(f,g) \in P$ gilt außerdem
 \[
     \Phi(f,g)(t)
   = \begin{cases}
-      f(2t)   & \text{für $0 \leq t \leq \frac{1}{2}$}, \\
-      g(2t-1) & \text{für $\frac{1}{2} \leq t \leq 1$}.
+      f(2t)   & \text{für $0 \leq t \leq 1/2$}, \\
+      g(2t-1) & \text{für $1/2 \leq t \leq 1$}.
     \end{cases}
 \]
 Dies ist genau die Konkatination von Pfaden.
-
 
 
 
